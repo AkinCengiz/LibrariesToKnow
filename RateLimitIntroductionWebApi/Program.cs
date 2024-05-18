@@ -26,9 +26,10 @@ public class Program
 		builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 		builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 		
-
-		var app = builder.Build();
 		
+		var app = builder.Build();
+		var ipPolicy = app.Services.GetRequiredService<IIpPolicyStore>();
+		ipPolicy.SeedAsync().Wait();
 		// Configure the HTTP request pipeline.
 		if (app.Environment.IsDevelopment())
 		{
