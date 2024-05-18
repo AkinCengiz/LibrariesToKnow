@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace FluentValidationApp.MVC.Controllers
     public class CustomersController : Controller
     {
         private readonly LibraryToKnowDbContext _context;
+        private readonly IValidator<Customer> _customerValidator;
 
-        public CustomersController(LibraryToKnowDbContext context)
+        public CustomersController(LibraryToKnowDbContext context, IValidator<Customer> customerValidator)
         {
             _context = context;
+            _customerValidator = customerValidator;
         }
 
         // GET: Customers
@@ -55,12 +58,20 @@ namespace FluentValidationApp.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Email,Age,BirthDate")] Customer customer)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(customer);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            var result = _customerValidator.Validate(customer);
+            if (result.IsValid)
             {
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(customer);
         }
 
