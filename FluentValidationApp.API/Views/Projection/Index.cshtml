@@ -1,0 +1,15 @@
+﻿@using FluentValidationApp.API.DTOs
+@model EventDateDto
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Event Date</h1>
+<form asp-action="Index">
+	<input asp-for="Day"/>
+	<input asp-for="Month"/>
+	<input asp-for="Year" />
+	<button type="submit">Submit</button>
+</form>
+<h1>@ViewBag.date</h1>
+
