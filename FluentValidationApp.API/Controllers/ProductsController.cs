@@ -31,7 +31,7 @@ namespace FluentValidationApp.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<ProductDto>>> GetProducts()
         {
-            List<Product> products = await _context.Products.ToListAsync();
+            List<Product> products = await _context.Products.Include(c => c.Category).ToListAsync();
             return _mapper.Map<List<ProductDto>>(products);
         }
 

@@ -10,4 +10,5 @@ public class FluentValidationApiContext : DbContext
 
 	public DbSet<Customer> Customers { get; set; }
 	public DbSet<Product> Products { get; set; }
+	public DbSet<Category> Categories { get; set; }
 }

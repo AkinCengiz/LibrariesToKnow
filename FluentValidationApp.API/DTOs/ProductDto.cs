@@ -7,4 +7,5 @@ public class ProductDto
 	public string Description { get; set; }
 	public decimal UnitPrice { get; set; }
 	public int StockAmount { get; set; }
+	public string CategoryCategoryName { get; set; }
 }
