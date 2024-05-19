@@ -16,5 +16,6 @@ public class CustomerValidator : AbstractValidator<Customer>
             return DateTime.Now.AddYears(-18) >= x;
         }).WithMessage("Yaşınız 18 yaşından büyük olmalıdır...");
         RuleForEach(x => x.Addresses).SetValidator(new AddressValidator());
+        RuleFor(x => x.Gender).IsInEnum().WithMessage("{PropertyName} alanı erkek için 1 kadın için 2 olmalıdır...");
     }
 }
