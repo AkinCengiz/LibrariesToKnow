@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.DependencyInversion",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimitIntroductionWebApi", "RateLimitIntroductionWebApi\RateLimitIntroductionWebApi.csproj", "{AD704E7D-B259-4304-A148-2D41E5F1A231}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationApp.MVC", "FluentValidationApp.MVC\FluentValidationApp.MVC.csproj", "{F5F4E13B-1295-440E-BB94-E40FAA4FB42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationApp.MVC", "FluentValidationApp.MVC\FluentValidationApp.MVC.csproj", "{F5F4E13B-1295-440E-BB94-E40FAA4FB42D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationApp.API", "FluentValidationApp.API\FluentValidationApp.API.csproj", "{9B97EDA9-5759-4314-AC77-72C894FBAC78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{F5F4E13B-1295-440E-BB94-E40FAA4FB42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5F4E13B-1295-440E-BB94-E40FAA4FB42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5F4E13B-1295-440E-BB94-E40FAA4FB42D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B97EDA9-5759-4314-AC77-72C894FBAC78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B97EDA9-5759-4314-AC77-72C894FBAC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B97EDA9-5759-4314-AC77-72C894FBAC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B97EDA9-5759-4314-AC77-72C894FBAC78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
