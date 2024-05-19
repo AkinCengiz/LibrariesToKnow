@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using FluentValidation;
+using FluentValidationApp.API.DTOs;
 using FluentValidationApp.API.FluentValidators;
+using FluentValidationApp.API.Mapping;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,18 +20,21 @@ namespace FluentValidationApp.API.Controllers
     {
         private readonly FluentValidationApiContext _context;
         private readonly IValidator<Customer> _validator;
+        private readonly IMapper _mapper;
 
-        public CustomersController(FluentValidationApiContext context, IValidator<Customer> validator)
+        public CustomersController(FluentValidationApiContext context, IValidator<Customer> validator, IMapper mapper)
         {
 	        _context = context;
 	        _validator = validator;
+	        _mapper = mapper;
         }
 
         // GET: api/Customers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomers()
         {
-            return await _context.Customers.ToListAsync();
+            List<Customer> customers = await _context.Customers.ToListAsync();
+            return _mapper.Map<List<CustomerDto>>(customers);
         }
 
         // GET: api/Customers/5
